@@ -1,0 +1,5 @@
+rowa = concat(rotate(b),rotate(b));
+rowb = concat(rotate(b),rotate(a));
+rowc = concat(rotate(a),rotate(a));
+topleftcell = concat(rowa,concat(rowb, rowc));
+showTiles(topleftcell);

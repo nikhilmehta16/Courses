@@ -1,0 +1,3 @@
+fun g(x,y) {return concat(y,x);}
+fun h(x,y) {return concat(x,y);}
+showTiles(h(g(a,b), rotate(rotate(g(a,b)))));

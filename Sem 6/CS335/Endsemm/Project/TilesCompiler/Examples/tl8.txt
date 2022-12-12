@@ -1,0 +1,6 @@
+fun x(y) {
+  z = rotate(b);
+  return concat(y,z);
+}
+
+showTiles(x(b));

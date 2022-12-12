@@ -1,0 +1,2 @@
+x = concat(rotate(concat(a,rotate(b))),rotate(concat(rotate(a),b)));
+showTiles(x);

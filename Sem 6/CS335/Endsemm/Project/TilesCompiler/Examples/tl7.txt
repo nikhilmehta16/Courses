@@ -1,0 +1,8 @@
+fun concat3(x,y,z) { return concat(concat(x,y),z); }
+fun unrotate(x) { return rotate(rotate(rotate(x))); }
+p = unrotate(a);
+q = unrotate(b);
+showTiles(concat(concat(rotate(concat3(a,p,a)),
+                        unrotate(concat3(a,p,a))),
+                 concat(rotate(concat3(b,q,b)),
+                        unrotate(concat3(b,q,b)))));

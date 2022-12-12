@@ -1,0 +1,400 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    FUNCTION
+
+Grammar
+
+Rule 0     S' -> translation_unit
+Rule 1     translation_unit -> PROGRAM ID ; VAR declaration_list BEGIN expression_list END .
+Rule 2     declaration_list -> declaration_list declaration
+Rule 3     declaration_list -> declaration
+Rule 4     declaration -> variable_list : type ;
+Rule 5     variable_list -> variable_list , ID
+Rule 6     variable_list -> ID
+Rule 7     type -> INTEGER
+Rule 8     type -> REAL
+Rule 9     expression_list -> expression_list expression
+Rule 10    expression_list -> expression
+Rule 11    expression -> ID ASSIGN additive_expression ;
+Rule 12    additive_expression -> multiplicative_expression + multiplicative_expression
+Rule 13    additive_expression -> multiplicative_expression
+Rule 14    multiplicative_expression -> unary_expression * unary_expression
+Rule 15    multiplicative_expression -> unary_expression
+Rule 16    unary_expression -> ID
+Rule 17    unary_expression -> NUMERIC
+Rule 18    unary_expression -> FLOAT
+
+Terminals, with rules where they appear
+
+*                    : 14
++                    : 12
+,                    : 5
+.                    : 1
+:                    : 4
+;                    : 1 4 11
+ASSIGN               : 11
+BEGIN                : 1
+END                  : 1
+FLOAT                : 18
+FUNCTION             : 
+ID                   : 1 5 6 11 16
+INTEGER              : 7
+NUMERIC              : 17
+PROGRAM              : 1
+REAL                 : 8
+VAR                  : 1
+error                : 
+
+Nonterminals, with rules where they appear
+
+additive_expression  : 11
+declaration          : 2 3
+declaration_list     : 1 2
+expression           : 9 10
+expression_list      : 1 9
+multiplicative_expression : 12 12 13
+translation_unit     : 0
+type                 : 4
+unary_expression     : 14 14 15
+variable_list        : 4 5
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . translation_unit
+    (1) translation_unit -> . PROGRAM ID ; VAR declaration_list BEGIN expression_list END .
+
+    PROGRAM         shift and go to state 2
+
+    translation_unit               shift and go to state 1
+
+state 1
+
+    (0) S' -> translation_unit .
+
+
+
+state 2
+
+    (1) translation_unit -> PROGRAM . ID ; VAR declaration_list BEGIN expression_list END .
+
+    ID              shift and go to state 3
+
+
+state 3
+
+    (1) translation_unit -> PROGRAM ID . ; VAR declaration_list BEGIN expression_list END .
+
+    ;               shift and go to state 4
+
+
+state 4
+
+    (1) translation_unit -> PROGRAM ID ; . VAR declaration_list BEGIN expression_list END .
+
+    VAR             shift and go to state 5
+
+
+state 5
+
+    (1) translation_unit -> PROGRAM ID ; VAR . declaration_list BEGIN expression_list END .
+    (2) declaration_list -> . declaration_list declaration
+    (3) declaration_list -> . declaration
+    (4) declaration -> . variable_list : type ;
+    (5) variable_list -> . variable_list , ID
+    (6) variable_list -> . ID
+
+    ID              shift and go to state 6
+
+    declaration_list               shift and go to state 7
+    declaration                    shift and go to state 8
+    variable_list                  shift and go to state 9
+
+state 6
+
+    (6) variable_list -> ID .
+
+    :               reduce using rule 6 (variable_list -> ID .)
+    ,               reduce using rule 6 (variable_list -> ID .)
+
+
+state 7
+
+    (1) translation_unit -> PROGRAM ID ; VAR declaration_list . BEGIN expression_list END .
+    (2) declaration_list -> declaration_list . declaration
+    (4) declaration -> . variable_list : type ;
+    (5) variable_list -> . variable_list , ID
+    (6) variable_list -> . ID
+
+    BEGIN           shift and go to state 10
+    ID              shift and go to state 6
+
+    declaration                    shift and go to state 11
+    variable_list                  shift and go to state 9
+
+state 8
+
+    (3) declaration_list -> declaration .
+
+    BEGIN           reduce using rule 3 (declaration_list -> declaration .)
+    ID              reduce using rule 3 (declaration_list -> declaration .)
+
+
+state 9
+
+    (4) declaration -> variable_list . : type ;
+    (5) variable_list -> variable_list . , ID
+
+    :               shift and go to state 12
+    ,               shift and go to state 13
+
+
+state 10
+
+    (1) translation_unit -> PROGRAM ID ; VAR declaration_list BEGIN . expression_list END .
+    (9) expression_list -> . expression_list expression
+    (10) expression_list -> . expression
+    (11) expression -> . ID ASSIGN additive_expression ;
+
+    ID              shift and go to state 14
+
+    expression_list                shift and go to state 15
+    expression                     shift and go to state 16
+
+state 11
+
+    (2) declaration_list -> declaration_list declaration .
+
+    BEGIN           reduce using rule 2 (declaration_list -> declaration_list declaration .)
+    ID              reduce using rule 2 (declaration_list -> declaration_list declaration .)
+
+
+state 12
+
+    (4) declaration -> variable_list : . type ;
+    (7) type -> . INTEGER
+    (8) type -> . REAL
+
+    INTEGER         shift and go to state 18
+    REAL            shift and go to state 19
+
+    type                           shift and go to state 17
+
+state 13
+
+    (5) variable_list -> variable_list , . ID
+
+    ID              shift and go to state 20
+
+
+state 14
+
+    (11) expression -> ID . ASSIGN additive_expression ;
+
+    ASSIGN          shift and go to state 21
+
+
+state 15
+
+    (1) translation_unit -> PROGRAM ID ; VAR declaration_list BEGIN expression_list . END .
+    (9) expression_list -> expression_list . expression
+    (11) expression -> . ID ASSIGN additive_expression ;
+
+    END             shift and go to state 22
+    ID              shift and go to state 14
+
+    expression                     shift and go to state 23
+
+state 16
+
+    (10) expression_list -> expression .
+
+    END             reduce using rule 10 (expression_list -> expression .)
+    ID              reduce using rule 10 (expression_list -> expression .)
+
+
+state 17
+
+    (4) declaration -> variable_list : type . ;
+
+    ;               shift and go to state 24
+
+
+state 18
+
+    (7) type -> INTEGER .
+
+    ;               reduce using rule 7 (type -> INTEGER .)
+
+
+state 19
+
+    (8) type -> REAL .
+
+    ;               reduce using rule 8 (type -> REAL .)
+
+
+state 20
+
+    (5) variable_list -> variable_list , ID .
+
+    :               reduce using rule 5 (variable_list -> variable_list , ID .)
+    ,               reduce using rule 5 (variable_list -> variable_list , ID .)
+
+
+state 21
+
+    (11) expression -> ID ASSIGN . additive_expression ;
+    (12) additive_expression -> . multiplicative_expression + multiplicative_expression
+    (13) additive_expression -> . multiplicative_expression
+    (14) multiplicative_expression -> . unary_expression * unary_expression
+    (15) multiplicative_expression -> . unary_expression
+    (16) unary_expression -> . ID
+    (17) unary_expression -> . NUMERIC
+    (18) unary_expression -> . FLOAT
+
+    ID              shift and go to state 25
+    NUMERIC         shift and go to state 29
+    FLOAT           shift and go to state 30
+
+    additive_expression            shift and go to state 26
+    multiplicative_expression      shift and go to state 27
+    unary_expression               shift and go to state 28
+
+state 22
+
+    (1) translation_unit -> PROGRAM ID ; VAR declaration_list BEGIN expression_list END . .
+
+    .               shift and go to state 31
+
+
+state 23
+
+    (9) expression_list -> expression_list expression .
+
+    END             reduce using rule 9 (expression_list -> expression_list expression .)
+    ID              reduce using rule 9 (expression_list -> expression_list expression .)
+
+
+state 24
+
+    (4) declaration -> variable_list : type ; .
+
+    BEGIN           reduce using rule 4 (declaration -> variable_list : type ; .)
+    ID              reduce using rule 4 (declaration -> variable_list : type ; .)
+
+
+state 25
+
+    (16) unary_expression -> ID .
+
+    *               reduce using rule 16 (unary_expression -> ID .)
+    +               reduce using rule 16 (unary_expression -> ID .)
+    ;               reduce using rule 16 (unary_expression -> ID .)
+
+
+state 26
+
+    (11) expression -> ID ASSIGN additive_expression . ;
+
+    ;               shift and go to state 32
+
+
+state 27
+
+    (12) additive_expression -> multiplicative_expression . + multiplicative_expression
+    (13) additive_expression -> multiplicative_expression .
+
+    +               shift and go to state 33
+    ;               reduce using rule 13 (additive_expression -> multiplicative_expression .)
+
+
+state 28
+
+    (14) multiplicative_expression -> unary_expression . * unary_expression
+    (15) multiplicative_expression -> unary_expression .
+
+    *               shift and go to state 34
+    +               reduce using rule 15 (multiplicative_expression -> unary_expression .)
+    ;               reduce using rule 15 (multiplicative_expression -> unary_expression .)
+
+
+state 29
+
+    (17) unary_expression -> NUMERIC .
+
+    *               reduce using rule 17 (unary_expression -> NUMERIC .)
+    +               reduce using rule 17 (unary_expression -> NUMERIC .)
+    ;               reduce using rule 17 (unary_expression -> NUMERIC .)
+
+
+state 30
+
+    (18) unary_expression -> FLOAT .
+
+    *               reduce using rule 18 (unary_expression -> FLOAT .)
+    +               reduce using rule 18 (unary_expression -> FLOAT .)
+    ;               reduce using rule 18 (unary_expression -> FLOAT .)
+
+
+state 31
+
+    (1) translation_unit -> PROGRAM ID ; VAR declaration_list BEGIN expression_list END . .
+
+    $end            reduce using rule 1 (translation_unit -> PROGRAM ID ; VAR declaration_list BEGIN expression_list END . .)
+
+
+state 32
+
+    (11) expression -> ID ASSIGN additive_expression ; .
+
+    END             reduce using rule 11 (expression -> ID ASSIGN additive_expression ; .)
+    ID              reduce using rule 11 (expression -> ID ASSIGN additive_expression ; .)
+
+
+state 33
+
+    (12) additive_expression -> multiplicative_expression + . multiplicative_expression
+    (14) multiplicative_expression -> . unary_expression * unary_expression
+    (15) multiplicative_expression -> . unary_expression
+    (16) unary_expression -> . ID
+    (17) unary_expression -> . NUMERIC
+    (18) unary_expression -> . FLOAT
+
+    ID              shift and go to state 25
+    NUMERIC         shift and go to state 29
+    FLOAT           shift and go to state 30
+
+    multiplicative_expression      shift and go to state 35
+    unary_expression               shift and go to state 28
+
+state 34
+
+    (14) multiplicative_expression -> unary_expression * . unary_expression
+    (16) unary_expression -> . ID
+    (17) unary_expression -> . NUMERIC
+    (18) unary_expression -> . FLOAT
+
+    ID              shift and go to state 25
+    NUMERIC         shift and go to state 29
+    FLOAT           shift and go to state 30
+
+    unary_expression               shift and go to state 36
+
+state 35
+
+    (12) additive_expression -> multiplicative_expression + multiplicative_expression .
+
+    ;               reduce using rule 12 (additive_expression -> multiplicative_expression + multiplicative_expression .)
+
+
+state 36
+
+    (14) multiplicative_expression -> unary_expression * unary_expression .
+
+    +               reduce using rule 14 (multiplicative_expression -> unary_expression * unary_expression .)
+    ;               reduce using rule 14 (multiplicative_expression -> unary_expression * unary_expression .)
+

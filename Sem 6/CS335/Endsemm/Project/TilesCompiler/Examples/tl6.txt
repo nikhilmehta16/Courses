@@ -1,0 +1,7 @@
+fun unrotate(x) { return rotate(rotate(rotate(x))); }
+fun pile(x,y) { return concat(x,y); }
+aa=rotate(rotate(concat(b,a)));
+bb=b;
+p=concat(bb,aa);
+q=concat(bb,aa);
+showTiles(pile(rotate(a),unrotate(b)));

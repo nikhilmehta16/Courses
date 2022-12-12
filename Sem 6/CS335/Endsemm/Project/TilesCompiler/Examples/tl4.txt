@@ -1,0 +1,20 @@
+fun unrotate(x) 
+{ 
+    return rotate(rotate(rotate(x))); 
+}
+fun pile(x, y) 
+{ 
+    return unrotate(concat(rotate(y), 
+                    rotate(x)));
+}
+row1 = concat(rotate(b), unrotate(b));
+row2 = concat(unrotate(b), rotate(a));
+row3 = concat(rotate(a), unrotate(a));
+top_left_cell = pile(row1,row2);
+fun make_square(x) {
+    return pile(concat(x, rotate(x)), 
+                concat(unrotate(x), 
+                rotate(rotate(x))));
+}
+showTiles(make_square(make_square(top_left_cell)));
+

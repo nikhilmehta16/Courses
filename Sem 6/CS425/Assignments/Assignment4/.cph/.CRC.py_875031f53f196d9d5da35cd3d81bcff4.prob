@@ -1,0 +1,1 @@
+{"name":"Local: CRC","url":"/media/nikhilmehta/New Volume/01IITK/Sem 6/CS425/Assignments/Assignment4/CRC.py","tests":[{"id":1648735011403,"input":"1010110101\n110101","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/media/nikhilmehta/New Volume/01IITK/Sem 6/CS425/Assignments/Assignment4/CRC.py","group":"local","local":true}

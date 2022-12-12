@@ -1,0 +1,11 @@
+# Ignore the files for virutal environment
+venvcompiler/
+
+# Ignore vscode config files
+.vscode/
+
+# Extras
+src/__pycache__
+
+# Ignore parser dump files
+tmp/
