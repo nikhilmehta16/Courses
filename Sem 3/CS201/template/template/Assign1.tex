@@ -1,0 +1,121 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage}
+\usepackage{amsthm}
+%\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{scrextend}
+\usepackage{todonotes}
+\usepackage{tikz}
+\usepackage{thmtools,thm-restate}
+\usepackage{setspace}
+\usepackage[colorlinks]{hyperref}
+\usepackage{extramarks}
+\usepackage{enumerate}
+\usepackage[outline]{contour}
+
+\input{./bib/customurlbst/bibmacros}
+
+% Update these details with your Group Number, Member Names (Roll No.).
+\newcommand{\GroupNum}{261}
+\newcommand{\MembAName}{Kurt G\"odel (280406)}
+\newcommand{\MembBName}{Bertrand Russell (180572)}
+\newcommand{\MembCName}{Alonzo Church (140603)}
+
+% Font
+\usepackage[rm,light]{roboto}
+\usepackage[T1]{fontenc}
+% Or you could use ...
+% \usepackage{mathpazo}
+
+\input{./macros}
+\allowdisplaybreaks
+
+\begin{document}
+    \noindent
+    \input{header}
+    \onehalfspace
+
+    \begin{question}
+        Let $S = \{(a,b,c) | a,b,c \in \Z\}$ be the set of all triplets of integers. Show that $|S| = \aleph_0$.
+    \end{question}
+
+    \begin{solution}
+        Your solution goes here.
+    \end{solution}
+
+    \begin{question}
+        For any $a,b,c,d \not \in \{-\infty, \infty\}$, show that $|[a,b]| = |[c,d]|$ where $[x,y]$ is the set of all real numbers between $x$ and $y$
+    \end{question}
+    \begin{solution}
+        Your solution goes here.
+    \end{solution}
+
+    \begin{question}
+        Show that $|[0,1]| = \aleph_1$ where $[0,1]$ is the set of all real numbers between 0 and 1.
+    \end{question}
+    
+    \begin{solution}
+        Your solution goes here.
+    \end{solution}
+
+    \begin{question}
+        Show that $|\{0,1\}^*| = \aleph_1$ where $\{0,1\}^*$ is the set of all binary strings of infinite length.
+    \end{question}
+    
+    \begin{solution}
+        Your solution goes here.
+    \end{solution}
+
+    \begin{question}
+        Suppose $R$ is a partial order on $A$ and $S$ be a partial order on $B$. Let $L$ be a binary relation on $A \times B$ defined as $(a,b)L(a',b')$ iff
+        \begin{itemize}
+            \item $a \neq a'$ and $aRa'$
+            \item $a = a'$ and $bSb'$.
+        \end{itemize}
+        Show that $L$ is also a partial order on $A \times B$. Is it a total order?
+    \end{question}
+
+    \begin{solution}
+        Your solution goes here.
+    \end{solution}
+
+    \begin{question}
+        Let $R$ be a binary relation on $\N$ defined as $aRb$ if $b = 2^k a$ where $k$ is a non-negative integer. Show that $R$ is a partial order on $\N$.
+    \end{question}
+    
+    \begin{solution}
+        Your solution goes here.
+    \end{solution}
+
+    \begin{question}
+        Let $n$ be a positive integer. Consider the relation $\equiv_n$ on $\Z$ such that $a \equiv_n b \iff a = b \mod \ n$. Show that $\equiv_n$ is an equivalence relation on $\Z$. What are the equivalence classes?
+    \end{question}
+
+    \begin{solution}
+        Your solution goes here.
+    \end{solution}
+
+    \begin{question}
+        Consider the relation $S$ on $\N$ such that $aSb \iff ab$ is a perfect square. Show that $S$ is an equivalence relation on $\N$. What are the equivalence classes?
+    \end{question}
+    
+    \begin{solution}
+        Your solution goes here.
+    \end{solution}
+
+    \begin{question}
+        There was an ambiguity in the definition of a well-ordering in the lectures. It is clarified here. 
+        
+        A {\em well-ordering} $R$ on set $A$ is a partial order such that for every subset $B\subseteq A$, $B$ has an element $m$ such that $mRb$ for every $b\in B$.
+        
+        In lecture 6, a partial order is shown to be a well-ordering twice: once during proof of the implication that Axiom of Choice implies Zorn's Lemma, and next during proof of the implication that Zorn's Lemma implies Well-Ordering Principle. Redo both these proofs in light of the above clarification.
+    \end{question}
+
+    \begin{solution}
+        Your solution goes here.
+    \end{solution}
+
+    \bibliographystyle{./bib/customurlbst/alphaurlpp}
+    \bibliography{./bib/references}
+\end{document}  

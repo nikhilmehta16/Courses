@@ -1,0 +1,90 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage}
+\usepackage{amsthm}
+%\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{scrextend}
+\usepackage{todonotes}
+\usepackage{tikz}
+\usepackage{thmtools,thm-restate}
+\usepackage{setspace}
+\usepackage[colorlinks]{hyperref}
+\usepackage{extramarks}
+\usepackage{enumerate}
+\usepackage[outline]{contour}
+\usepackage{fancyhdr}
+
+\input{./bib/customurlbst/bibmacros}
+
+% Update these details with your Group Number, Member Names (Roll No.).
+\newcommand{\GroupNum}{261}
+\newcommand{\MembAName}{Kurt G\"odel (280406)}
+\newcommand{\MembBName}{Bertrand Russell (180572)}
+\newcommand{\MembCName}{Alonzo Church (140603)}
+
+% Font
+\usepackage[rm,light]{roboto}
+\usepackage[T1]{fontenc}
+% Or you could use ...
+% \usepackage{mathpazo}
+
+\input{./macros}
+\allowdisplaybreaks
+
+\begin{document}
+    \noindent
+    \input{header}
+    \onehalfspace
+    \thispagestyle{plain}
+
+    \begin{question}
+        A \textbf{partition} of $n$ objects is a collection of its mutually disjoint subsets, called \textit{blocks}, whose union gives the whole set. Let $S(n; k_1, k_2, \dots, k_n)$ denote the number of all partitions of $n$ objects with $k_i$ $i$-element blocks (i.e., $k_1 + 2k_2 + \dots + nk_n = n$). In other words, 
+        \[k_i = \text{the number of $i$-element blocks in a partition}\]
+    Show that $S(n; k_1, k_2, \dots, k_n) = \dfrac{n!}{k_1!k_2!\dots k_n! (1!)^{k_1}(2!)^{k_2}\dots (n!)^{k_n}}$.
+    \end{question}
+
+    \begin{solution}
+        Your solution goes here.
+    \end{solution}
+
+    \begin{question}
+        Show that for every $k$, the product of any $k$ consecutive natural numbers is divisible by $k!$.
+    \end{question}
+    \begin{solution}
+        Your solution goes here.
+    \end{solution}
+
+    \begin{question}
+        Show that the number of pairs $(A, B)$ of distinct subsets of $\{1,2, \dots, n\}$ with $A \subset B$ is $3^n - 2^n$.
+    \end{question}
+    
+    \begin{solution}
+        Your solution goes here.
+    \end{solution}
+
+    \begin{question}
+        There is a set of $2n$ people ($n$ males and $n$ females). A good party is a set with the same number of males and females. How many ways are there to build such a good party?
+    \end{question}
+    
+    \begin{solution}
+        Your solution goes here.
+    \end{solution}
+
+    \begin{question}
+        \begin{enumerate}
+            \item Show that the number of integer solution to the equation
+                \[x_1 + x_2 + \dots + x_n = k\]
+            under the condition that $x_i \geq 0$ for all $i$ is $\binom{n+k-1}{k}$.
+            
+            \item Let $n$ and $k \geq l$ be positive integers. How many different integer solutions are there to the equation $x_1 + x_2 + \dots + x_n = k$ such that $0 \leq x_i < l$ for all $i$.
+        \end{enumerate}
+    \end{question}
+
+    \begin{solution}
+        Your solution goes here.
+    \end{solution}
+
+    \bibliographystyle{./bib/customurlbst/alphaurlpp}
+    \bibliography{./bib/references}
+\end{document}  
